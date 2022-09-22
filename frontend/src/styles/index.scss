@@ -1,0 +1,22 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './Utils.scss';
+
+body {
+  margin: 0;
+  font-family:'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.signin_form{
+  margin-bottom: 5px;
+  }
+
+  .signin_logo{
+    margin-bottom: 50px;
+  }
