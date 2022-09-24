@@ -8,9 +8,9 @@ import imgLogo from '../assets/icon-left-font.png';
 
 const SignUp = () => {
     return (
-        <Container className='text-center signin_container'>
-            <Form>
-              <img src={imgLogo} alt='logo groupomania' className='signin_logo' /> 
+        <Container className='flex-column d-flex justify-content-center col-12'>
+            <img src={imgLogo} alt='logo groupomania' className='signin_logo' /> 
+            <Form>  
               <h1>Créer mon compte</h1> 
             </Form>
             <Form.Group controlId='sign-in-email-adress' className='signin_form'>

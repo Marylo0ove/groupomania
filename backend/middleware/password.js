@@ -14,6 +14,7 @@ passwordSchema
 .has().not().spaces()                           // Ne doit pas contenir d'espace
 
 module.exports = (req, res, next) => {
+    console.log(req.body)
     if(passwordSchema.validate(req.body.password)){
         next();
     }else{
