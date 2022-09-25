@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import '../styles/index.scss';
 import { NavLink, useActionData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import imgLogo from '../assets/icon-left-font.svg';
+import imgLogo from '../assets/icon-left-font.png';
 
 
 
@@ -18,7 +18,7 @@ const SignIn = () => {
         const emailError = document.querySelector('.email.error');
         const passwordError = document.querySelector('.password.error');
 
-        Axios({
+        axios({
             method:'post',
             url: `${process.env.REACT_APP_API_URL}api/auth/login`,
             withCredentials: true,
@@ -42,8 +42,8 @@ const SignIn = () => {
     };
 
     return (
-        <Container className='flex-column d-flex justify-content-center col-10'>
-            <img src={imgLogo} alt='logo groupomania'/> 
+        <Container className='flex-column d-flex justify-content-center text-center col-10'>
+            <img src={imgLogo} alt='logo groupomania' className='signin_logo' /> 
             <Form>
               <h1>Connexion</h1> 
             </Form>

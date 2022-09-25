@@ -8,12 +8,10 @@ const uniqueValidator = require('mongoose-unique-validator');
 const { isEmail } = require('validator');
 
 const userSchema = mongoose.Schema({
-  pseudo: { type: String, unique: true },
   email: { type: String, required: true, validate:[isEmail], unique: true },
   password: { type: String, required: true },
-  picture: { type: String, default:'./uploads/profil.random-user.png'},
-  bio: { type: String },
-  likes: { type: [String]}
+  //picture: { type: String, default:'./uploads/profil.random-user.png'},
+  //bio: { type: String },
 },{
   timestamps: true,
 });

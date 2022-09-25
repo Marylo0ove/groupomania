@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt'); // Importation du package de cryptage
-const User = require('../models/user.model'); // Importation du model
+const User = require('../models/user'); // Importation du model
 const jwt = require('jsonwebtoken'); // Importation de jsonwebtoken qui créé les tokens et les vérifis 
 
 // Création de nouveaux users dans la bdd à partir de l'inscription depuis l'application front-end
@@ -47,12 +47,13 @@ exports.login = (req, res, next) => {
       .catch(error => res.status(500).json({ error }));
  };
 
+ /*
  //Update du profil
  exports.updateUser = (req, res, next) =>{
     if (!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknown : ' + req.params.id)
     
-    try{
+    try{ 
         User.findOneAndUpdate(
             {_id: req.params.id},
             {$set: {
@@ -74,3 +75,4 @@ exports.login = (req, res, next) => {
     res.cookie('jwt', '', {maxAge: 1});
     res.redirect('/');
  }
+ */
