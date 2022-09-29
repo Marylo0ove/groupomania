@@ -20,7 +20,7 @@ const SignIn = () => {
 
         axios({
             method:'post',
-            url: `${process.env.REACT_APP_API_URL}api/auth/login`,
+            url: `${process.env.REACT_APP_API_URL}api/auth/`,
             withCredentials: true,
             data:{
                 email,

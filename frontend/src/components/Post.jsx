@@ -10,7 +10,7 @@ useEffect(() => {
 }, [])
 
     return (
-        <div>
+        <div >
             Post
         </div>
     );

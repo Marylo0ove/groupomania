@@ -15,12 +15,15 @@ exports.getAllPosts = (req, res, next) => {
 
 // Création d'un post
 exports.createPost = (req, res, next) => {
-    const postObject = JSON.parse(req.body.post); // Converti la réponse de string à JSON
+    const postObject = req.body.post; // Converti la réponse de string à JSON
     delete postObject._userId; // Supprime userId pour le récup depuis le token -> plus sécurisé
+    var imgUrl = "" ;
+    if(req.file)
+       imgUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
     const post = new Post({ 
         ...postObject, // spread copie les champs du body de la requête
         userId: req.auth.userId, // UserId récupéré depuis le token
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` // Génération de l'url de l'image
+        imageURL: imgUrl // Génération de l'url de l'image
 
     });
     post.save()// Méthode save enregistre dans la base de donnée, renvoie une promise
@@ -34,7 +37,7 @@ exports.updatePost = (req, res, next) => {
   const postObject = req.file ? { // On regarde s'il y a un champs file
       ...JSON.parse(req.body.post), // Si c'est le cas on recupère l'objet en parsant la chaine de caractère
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` // Et on recréé l'url de l'image
-  } : { ...req.body }; // Sinon on recupère direct l'objet dans le corps de la requête
+  } : { ...JSON.parse(req.body.post) }; // Sinon on recupère direct l'objet dans le corps de la requête
   //L'utilisation du mot-clé new avec un modèle Mongoose crée par défaut un champ_id . 
   //Utiliser ce mot-clé générerait une erreur, car nous tenterions de modifier un champ immuable dans un document de la base de données. 
   //Par conséquent, nous devons utiliser le paramètre id de la requête pour configurer notre Thing avec le même _id qu'avant.

@@ -11,7 +11,7 @@ const Home = () => {
         <Container>
             
               <Header />
-
+<Navigation />
            
             <Post />
          
